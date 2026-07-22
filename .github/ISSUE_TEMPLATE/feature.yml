@@ -1,0 +1,21 @@
+name: Algorithm or geometry request
+description: Propose a reproducible wearable-audio building block
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Smart wearable use case
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or algorithm
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References and evaluation plan
