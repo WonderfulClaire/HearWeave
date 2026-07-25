@@ -13,9 +13,10 @@
 
 ## Architecture
 - `geometry.py`: device layouts and propagation delays.
-- `simulation.py`: deterministic far-field scenes.
+- `simulation.py`: deterministic far-field scenes and mismatch modelling.
 - `beamforming.py`: enhancement baselines.
-- `localization.py`: TDOA and direction scan.
+- `localization.py`: TDOA, direction scan, and SRP-PHAT.
+- `streaming.py`: block-based processing with explicit latency.
 - `binaural.py`: two-ear cooperation baseline.
 - `visualization.py`: reproducible plots.
 

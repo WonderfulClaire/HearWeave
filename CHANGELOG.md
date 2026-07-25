@@ -2,6 +2,22 @@
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-07-25
+
+### Added
+
+- SRP-PHAT azimuth localization (`srp_phat`) with wearable-aware defaults:
+  aperture-derived band limiting and frame-coherence weighting
+- Microphone gain/timing mismatch simulation (`apply_microphone_mismatch`)
+- Streaming block-based delay-and-sum (`StreamingDelayAndSum`,
+  `stream_blocks`) with sample-exact integer latency, verified against the
+  offline reference in tests
+- `docs/TUTORIAL.md`: seven-step end-to-end walkthrough, every block verified
+- Expanded `docs/ALGORITHMS.md`: derivations, parameter cheat sheet,
+  complexity, and failure modes for every algorithm
+- CLI demo now also reports the SRP-PHAT estimate
+- Nine new regression tests (16 total)
+
 ## [0.1.0] - 2026-07-22
 
 ### Added

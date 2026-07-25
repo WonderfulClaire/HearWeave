@@ -11,7 +11,7 @@ from scipy.io import wavfile
 
 from .beamforming import delay_and_sum
 from .geometry import glasses_4mic
-from .localization import scan_azimuth_energy
+from .localization import scan_azimuth_energy, srp_phat
 from .metrics import snr_db
 from .simulation import simulate_plane_wave, speech_like_probe
 from .visualization import plot_beam_pattern, plot_geometry, save_localization_plot
@@ -32,6 +32,7 @@ def run_demo(output_directory: Path, seed: int = 7) -> dict[str, float]:
         rng=np.random.default_rng(seed),
     )
     estimate, scores, grid = scan_azimuth_energy(channels, geometry, sample_rate_hz)
+    srp_estimate, _, _ = srp_phat(channels, geometry, sample_rate_hz)
     enhanced = delay_and_sum(channels, geometry, sample_rate_hz, target_azimuth_deg)
     margin = 64
     input_snr = snr_db(clean[margin:-margin], channels[0, margin:-margin])
@@ -65,6 +66,7 @@ def run_demo(output_directory: Path, seed: int = 7) -> dict[str, float]:
     return {
         "target_azimuth_deg": target_azimuth_deg,
         "estimated_azimuth_deg": estimate,
+        "srp_phat_azimuth_deg": srp_estimate,
         "input_snr_db": input_snr,
         "output_snr_db": output_snr,
         "snr_improvement_db": output_snr - input_snr,

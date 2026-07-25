@@ -14,17 +14,19 @@ HearWeave is a lightweight Python toolkit for prototyping microphone-array proce
 
 General speech-enhancement repositories usually assume linear or circular tabletop arrays. Wearable devices have different constraints: temple microphones, left/right cooperation, small asymmetric sub-arrays, head shadowing, and strict compute budgets. HearWeave starts from those device geometries while keeping every baseline easy to inspect.
 
-## Included in v0.1
+## Included in v0.2
 
 - Smart-glasses 4-microphone and asymmetric 6-microphone earbud presets
-- Far-field multi-channel scene simulation
+- Far-field multi-channel scene simulation with microphone-mismatch modelling
 - Delay-and-sum and frequency-domain MVDR beamforming
+- Streaming block-based delay-and-sum with verified sample-exact latency
 - GCC-PHAT pairwise delay estimation
-- Grid-based azimuth localization
+- Grid-based azimuth localization and band-limited, coherence-weighted SRP-PHAT
 - Binaural coherence enhancement baseline
 - SNR and SI-SDR metrics
 - Geometry, beampattern, and localization visualizations
 - Synthetic smart-glasses sample scene with no recorded speech
+- A [step-by-step tutorial](docs/TUTORIAL.md) and a [full algorithm reference](docs/ALGORITHMS.md) with derivations and parameter guidance
 
 ## Quick start
 
@@ -37,17 +39,21 @@ hearweave-demo --output demo-output
 
 ```python
 import numpy as np
-from hearweave import delay_and_sum, glasses_4mic, scan_azimuth_energy
+from hearweave import delay_and_sum, glasses_4mic, srp_phat
 
 scene = np.load("datasets/simulated_glasses_scene.npz")
 geometry = glasses_4mic()
 signals = scene["microphone_signals"]
 sample_rate = int(scene["sample_rate_hz"])
 
-azimuth, scores, grid = scan_azimuth_energy(signals, geometry, sample_rate)
+azimuth, scores, grid = srp_phat(signals, geometry, sample_rate)
 enhanced = delay_and_sum(signals, geometry, sample_rate, azimuth)
 print(f"estimated direction: {azimuth:.1f}°")
 ```
+
+New to microphone arrays? Start with the [tutorial](docs/TUTORIAL.md) — seven
+copy-pasteable steps from geometry to a robustness experiment, all synthetic
+and reproducible.
 
 ## Demo result
 
@@ -70,7 +76,7 @@ python scripts/generate_assets.py
 4. **Honest boundaries** — simulations are never presented as real-device evidence.
 5. **Composable APIs** — geometry, simulation, localization, enhancement, metrics, and plots stay separable.
 
-Read [Algorithms and assumptions](docs/ALGORITHMS.md) before using results in a paper or product comparison.
+Read [Algorithms and assumptions](docs/ALGORITHMS.md) before using results in a paper or product comparison — it now covers the mathematics, parameter cheat sheet, complexity, and failure modes of every shipped algorithm.
 
 ## Scope and limitations
 
@@ -78,10 +84,13 @@ HearWeave is research and prototyping software—not a hearing aid, safety devic
 
 ## Roadmap
 
+- [x] SRP-PHAT localization (v0.2, band-limited + coherence-weighted)
+- [x] Microphone-mismatch simulation (v0.2)
+- [x] Streaming/block-processing interfaces (v0.2, delay-and-sum)
 - [ ] Measured and simulated wearable RIR loaders
-- [ ] SRP-PHAT and multi-source tracking
-- [ ] Head-shadow and microphone-mismatch simulation
-- [ ] Streaming/block-processing interfaces
+- [ ] Multi-source tracking
+- [ ] Head-shadow simulation
+- [ ] Streaming MVDR and block-based localization
 - [ ] ONNX-friendly low-compute baselines
 - [ ] Real-device evaluation protocol and dataset adapters
 - [ ] BeamBench integration examples
