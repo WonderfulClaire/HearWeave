@@ -24,3 +24,11 @@ jobs:
       - run: ruff check .
       - run: python -m unittest discover -s tests -v
       - run: hearweave-demo --output build/ci-demo
+      - name: Build installable wheel
+        run: python -m pip wheel --no-deps . --wheel-dir build/wheels
+      - name: Smoke-test the end-user install
+        run: |
+          python -m venv build/smoke-venv
+          build/smoke-venv/bin/python -m pip install --upgrade pip
+          build/smoke-venv/bin/python -m pip install build/wheels/*.whl
+          build/smoke-venv/bin/hearweave-demo --output build/wheel-demo

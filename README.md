@@ -33,9 +33,14 @@ General speech-enhancement repositories usually assume linear or circular tablet
 ```bash
 git clone https://github.com/WonderfulClaire/HearWeave.git
 cd HearWeave
-python -m pip install -e .
+python --version  # HearWeave requires Python 3.10+
+python -m pip install --upgrade pip
+python -m pip install .
 hearweave-demo --output demo-output
 ```
+
+This installs the same wheel-style package an end user receives. Contributors who want an
+editable checkout can instead run `python -m pip install -e ".[dev]"` after upgrading pip.
 
 ```python
 import numpy as np
@@ -64,9 +69,18 @@ The checked-in scene is a deterministic smoke test: a synthetic speech-like prob
 Regenerate the dataset and figures with:
 
 ```bash
-python -m pip install -e .
+python -m pip install .
 python scripts/generate_assets.py
 ```
+
+### Installation troubleshooting
+
+- `requires a different Python`: check `python --version`; macOS may still map `python3` to
+  Python 3.9. Create the environment with Python 3.10 or newer.
+- `editable mode currently requires a setuptools-based build`: the environment has an old pip.
+  Use the end-user command `python -m pip install .`, or upgrade pip before an editable install.
+- `hearweave-demo: command not found`: make sure the environment used for installation is active,
+  or run `python -m hearweave.cli --output demo-output`.
 
 ## Design principles
 

@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Use the end-user wheel installation path in the README and tutorial.
+- Document Python-version, old-pip, and console-script troubleshooting.
+- Build and install the project wheel in a clean CI environment before running the demo.
+
 ## [0.2.0] - 2026-07-25
 
 ### Added
