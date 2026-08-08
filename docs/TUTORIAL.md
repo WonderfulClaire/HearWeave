@@ -13,7 +13,9 @@ mathematics behind every function used here.
 ```bash
 git clone https://github.com/WonderfulClaire/HearWeave.git
 cd HearWeave
-python -m pip install -e .
+python --version  # HearWeave requires Python 3.10+
+python -m pip install --upgrade pip
+python -m pip install .
 hearweave-demo --output demo-output   # writes plots + wav + npz
 ```
 
