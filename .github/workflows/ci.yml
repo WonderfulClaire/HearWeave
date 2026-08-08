@@ -32,3 +32,7 @@ jobs:
           build/smoke-venv/bin/python -m pip install --upgrade pip
           build/smoke-venv/bin/python -m pip install build/wheels/*.whl
           build/smoke-venv/bin/hearweave-demo --output build/wheel-demo
+      - name: Generate showcase assets
+        run: python scripts/generate_showcase.py --output build/showcase --frames 8 --fps 4
+      - name: Check showcase assets
+        run: test -s build/showcase/hearweave_showcase.png && test -s build/showcase/hearweave_showcase.gif

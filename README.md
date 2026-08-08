@@ -8,6 +8,12 @@
 
 HearWeave is a lightweight Python toolkit for prototyping microphone-array processing on **AI glasses, earbuds, and other smart wearable devices**. It packages readable reference implementations, wearable geometry presets, deterministic synthetic data, and visualization helpers in one repository.
 
+![HearWeave visual walkthrough](docs/assets/hearweave_showcase.gif)
+
+The animation is a deterministic visual walkthrough of the checked-in synthetic scene—not a
+runtime trace or real-device recording. It shows the declared microphone geometry, channel delays,
+SRP-PHAT direction score, and the corresponding 2 kHz delay-and-sum beam.
+
 ![Smart-glasses geometry and beam pattern](docs/assets/array_and_beam_pattern.png)
 
 ## Why HearWeave
@@ -72,6 +78,7 @@ Regenerate the dataset and figures with:
 ```bash
 python -m pip install .
 python scripts/generate_assets.py
+python scripts/generate_showcase.py
 ```
 
 ### Installation troubleshooting

@@ -1,10 +1,11 @@
 # Changelog
 
-## Unreleased
+## [Unreleased]
+
+### Added
 
 - Add a validated manifest and mono-WAV adapter for measured multichannel recordings, plus a privacy-aware real-device evaluation protocol.
-
-## [Unreleased]
+- Add a reproducible static overview and animated visual walkthrough of the synthetic smart-glasses pipeline.
 
 ### Changed
 
