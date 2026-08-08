@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add a validated manifest and mono-WAV adapter for measured multichannel recordings, plus a privacy-aware real-device evaluation protocol.
+
 ## [Unreleased]
 
 ## [0.2.0] - 2026-07-25

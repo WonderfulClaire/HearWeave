@@ -11,3 +11,7 @@ Contents:
 - `microphone_signals`: delayed probe plus independent white noise, shape 4 × samples
 
 The sample contains no recorded speech, biometric data, or third-party content. It is released under the repository's MIT license and is intended for smoke tests and tutorials—not algorithm benchmarking.
+
+`recording_manifest.example.json` is a metadata template for measured multichannel WAV captures.
+It contains no audio and no participant information. See
+[`docs/REAL_RECORDINGS.md`](../docs/REAL_RECORDINGS.md) before adapting private or licensed data.

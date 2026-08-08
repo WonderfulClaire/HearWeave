@@ -5,11 +5,13 @@ from .binaural import binaural_coherence_enhance
 from .geometry import ArrayGeometry, asymmetric_earbuds_6mic, glasses_4mic
 from .localization import gcc_phat, scan_azimuth_energy, srp_phat
 from .metrics import si_sdr_db, snr_db
+from .recordings import MultichannelRecording, load_recording
 from .simulation import apply_microphone_mismatch, simulate_plane_wave
 from .streaming import StreamingDelayAndSum, stream_blocks
 
 __all__ = [
     "ArrayGeometry",
+    "MultichannelRecording",
     "StreamingDelayAndSum",
     "apply_microphone_mismatch",
     "asymmetric_earbuds_6mic",
@@ -17,6 +19,7 @@ __all__ = [
     "delay_and_sum",
     "gcc_phat",
     "glasses_4mic",
+    "load_recording",
     "mvdr_beamform",
     "scan_azimuth_energy",
     "si_sdr_db",
