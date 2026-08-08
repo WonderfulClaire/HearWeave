@@ -26,6 +26,7 @@ General speech-enhancement repositories usually assume linear or circular tablet
 - SNR and SI-SDR metrics
 - Geometry, beampattern, and localization visualizations
 - Synthetic smart-glasses sample scene with no recorded speech
+- Validated JSON + mono-WAV adapter for measured multichannel recordings
 - A [step-by-step tutorial](docs/TUTORIAL.md) and a [full algorithm reference](docs/ALGORITHMS.md) with derivations and parameter guidance
 
 ## Quick start
@@ -92,6 +93,10 @@ python scripts/generate_assets.py
 
 Read [Algorithms and assumptions](docs/ALGORITHMS.md) before using results in a paper or product comparison — it now covers the mathematics, parameter cheat sheet, complexity, and failure modes of every shipped algorithm.
 
+To connect measured hardware without guessing channel order or geometry, use the
+[real-recording manifest and evaluation protocol](docs/REAL_RECORDINGS.md). The public repository
+contains only a manifest template and synthetic tests—no private or third-party recordings.
+
 ## Scope and limitations
 
 HearWeave is research and prototyping software—not a hearing aid, safety device, or clinically validated enhancement system. The first simulator does not model rooms, head-related transfer functions, microphone mismatch, or clock drift. Those are intentional extension points, not hidden assumptions.
@@ -106,7 +111,8 @@ HearWeave is research and prototyping software—not a hearing aid, safety devic
 - [ ] Head-shadow simulation
 - [ ] Streaming MVDR and block-based localization
 - [ ] ONNX-friendly low-compute baselines
-- [ ] Real-device evaluation protocol and dataset adapters
+- [x] Real-device recording manifest, validated WAV adapter, and evaluation protocol
+- [ ] Measured dataset releases and device-specific calibration adapters
 - [ ] BeamBench integration examples
 
 ## Contributing

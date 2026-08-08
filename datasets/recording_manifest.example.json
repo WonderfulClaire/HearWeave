@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "recording_id": "replace-with-stable-id",
+  "sample_rate_hz": 16000,
+  "geometry_name": "measured-smart-glasses",
+  "channels": [
+    {
+      "label": "left-front",
+      "file": "audio/left-front.wav",
+      "position_m": [-0.075, 0.04, 0.0]
+    },
+    {
+      "label": "left-rear",
+      "file": "audio/left-rear.wav",
+      "position_m": [-0.075, -0.04, 0.0]
+    },
+    {
+      "label": "right-front",
+      "file": "audio/right-front.wav",
+      "position_m": [0.075, 0.04, 0.0]
+    },
+    {
+      "label": "right-rear",
+      "file": "audio/right-rear.wav",
+      "position_m": [0.075, -0.04, 0.0]
+    }
+  ],
+  "capture": {
+    "device_revision": "replace-me",
+    "scene_id": "replace-me",
+    "clocking": "shared-or-independent",
+    "notes": "Do not put participant identity or secrets here."
+  },
+  "evidence": {
+    "scope": "private evaluation or redistributable recording",
+    "consent_or_license_record": "store the traceable record outside this public manifest",
+    "ground_truth_method": "replace-me"
+  }
+}
