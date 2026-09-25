@@ -123,7 +123,7 @@ contains only a manifest template and synthetic tests—no private or third-part
 
 ## Scope and limitations
 
-HearWeave is research and prototyping software—not a hearing aid, safety device, or clinically validated enhancement system. The first simulator does not model rooms, head-related transfer functions, microphone mismatch, or clock drift. Those are intentional extension points, not hidden assumptions.
+HearWeave is research and prototyping software—not a hearing aid, safety device, or clinically validated enhancement system. The simulator uses free-field propagation. The optional `apply_microphone_mismatch` helper adds per-channel gain and fixed timing errors; it does not model room acoustics, head-related transfer functions, or time-varying clock drift. These remain extension points.
 
 ## Roadmap
 
