@@ -1,4 +1,13 @@
-# HearWeave
+<h1 align="center">HearWeave</h1>
+<p align="center"><strong>Spatial audio, from geometry to reproducible experiments.</strong></p>
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="docs/TUTORIAL.md">Tutorial</a> ·
+  <a href="docs/ALGORITHMS.md">Algorithms</a> ·
+  <a href="docs/beambench.md">BeamBench</a>
+</p>
+
+![HearWeave: wearable geometry, spatial processing, reproducible experiments](docs/assets/project-overview.svg)
 
 [![CI](https://github.com/WonderfulClaire/HearWeave/actions/workflows/ci.yml/badge.svg)](https://github.com/WonderfulClaire/HearWeave/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776ab?logo=python&logoColor=white)](pyproject.toml)
@@ -166,3 +175,4 @@ and a stable link (DOI, arXiv ID, or repository path)._
 ## License
 
 [MIT](LICENSE)
+
